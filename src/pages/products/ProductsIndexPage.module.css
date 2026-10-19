@@ -1,0 +1,110 @@
+.portfolio {
+  padding-block: clamp(3rem, 2rem + 4vw, 6rem);
+}
+
+.lead {
+  max-width: 40rem;
+  color: var(--c-text-2);
+  font-size: var(--t-lead);
+  line-height: 1.55;
+}
+
+.tableWrap {
+  position: relative;
+  margin-top: var(--s-7);
+  overflow-x: auto;
+  border: 1px solid var(--c-border);
+}
+
+.table {
+  width: 100%;
+  min-width: 34rem;
+  border-collapse: collapse;
+  font-size: var(--t-small);
+}
+
+.table caption {
+  padding: var(--s-3) var(--s-4);
+  text-align: left;
+  color: var(--c-text-3);
+  border-bottom: 1px solid var(--c-border);
+}
+
+.table th,
+.table td {
+  padding: var(--s-4);
+  text-align: left;
+  border-bottom: 1px solid var(--c-border);
+  font-weight: 400;
+}
+
+.table tbody tr:last-child > * {
+  border-bottom: 0;
+}
+
+.table thead th {
+  font-family: var(--f-display);
+  font-size: var(--t-h4);
+  font-weight: 500;
+  background: var(--c-surface);
+}
+
+.table thead th:first-child {
+  font-family: var(--f-mono);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-mono);
+  text-transform: uppercase;
+  color: var(--c-text-3);
+}
+
+.table thead a {
+  transition: color var(--dur-2);
+}
+
+.table thead a:hover {
+  color: var(--c-red-text);
+}
+
+.table tbody th {
+  color: var(--c-text);
+}
+
+.table tbody th :global(.mono) {
+  color: var(--c-red-text);
+  margin-right: 0.5rem;
+}
+
+.table td {
+  color: var(--c-text-2);
+  white-space: nowrap;
+}
+
+.table td[data-role='Operates'] {
+  color: var(--c-text);
+  background: var(--c-red-wash);
+}
+
+.mark {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 0.6rem;
+  border: 1px solid var(--c-text-2);
+  vertical-align: 0.05em;
+}
+
+td[data-role='Operates'] .mark {
+  background: var(--c-red-critical);
+  border-color: var(--c-red-critical);
+}
+
+.none {
+  color: var(--c-border-strong);
+}
+
+.legend {
+  margin-top: var(--s-4);
+  color: var(--c-text-3);
+  text-transform: none;
+  letter-spacing: 0.02em;
+}

@@ -51,3 +51,29 @@
     grid-column: 7 / -1;
   }
 }
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 44px;
+  margin-top: var(--s-5);
+  font-family: var(--f-sans);
+  font-size: var(--t-small);
+  font-weight: 500;
+  color: var(--c-text);
+  border-bottom: 1px solid var(--c-border-strong);
+  transition: border-color var(--dur-2) var(--ease-out);
+}
+
+.link svg {
+  transition: transform var(--dur-3) var(--ease-out);
+}
+
+.link:hover {
+  border-color: var(--c-red-critical);
+}
+
+.link:hover svg {
+  transform: translateX(3px);
+}

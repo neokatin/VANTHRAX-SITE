@@ -12,7 +12,7 @@ export function HomePage() {
       <Hero />
       <Products />
       <Infrastructure />
-      <ThreatIntel />
+      <ThreatIntel link={{ href: '/technology/#intelligence', label: 'Intelligence in the architecture' }} />
       <Technology />
       <Company />
       <Contact />

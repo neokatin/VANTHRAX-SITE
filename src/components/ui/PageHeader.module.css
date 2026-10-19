@@ -1,0 +1,136 @@
+.header {
+  position: relative;
+  padding-top: calc(var(--nav-h) + clamp(2rem, 1rem + 3vw, 4rem));
+  padding-bottom: clamp(3.5rem, 2rem + 5vw, 7rem);
+  border-bottom: 1px solid var(--c-border);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(var(--c-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--c-line) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 80% 90% at 85% 0%, #000, transparent 75%);
+}
+
+.crumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0;
+  color: var(--c-text-3);
+  font-size: var(--t-nano);
+}
+
+.crumbs li {
+  display: flex;
+  align-items: center;
+}
+
+.crumbs li + li::before {
+  content: '/';
+  margin-inline: 0.75rem;
+  color: var(--c-border-strong);
+}
+
+.crumbs a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  color: var(--c-text-2);
+  transition: color var(--dur-2);
+}
+
+.crumbs a:hover {
+  color: var(--c-text);
+}
+
+.crumbs [aria-current] {
+  color: var(--c-text);
+}
+
+.body {
+  row-gap: var(--s-6);
+  margin-top: clamp(2.5rem, 1.5rem + 4vw, 5.5rem);
+}
+
+.meta {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  color: var(--c-text-2);
+}
+
+.index {
+  color: var(--c-red-text);
+}
+
+.rule {
+  width: 2.5rem;
+  height: 1px;
+  background: var(--c-border-strong);
+}
+
+.title {
+  grid-column: 1 / -1;
+  font-size: var(--t-h1);
+  max-width: 15ch;
+}
+
+.intro {
+  grid-column: 1 / -1;
+  max-width: 40rem;
+}
+
+.intro p + p {
+  margin-top: 1em;
+}
+
+.extra {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 961px) {
+  .meta {
+    grid-column: 1 / 4;
+    align-self: start;
+    padding-top: 1.1em;
+  }
+
+  .title {
+    grid-column: 4 / -1;
+  }
+
+  .intro,
+  .extra {
+    grid-column: 7 / -1;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .title,
+  .intro,
+  .extra {
+    animation: header-in 1s var(--ease-out) both;
+  }
+
+  .intro {
+    animation-delay: 0.12s;
+  }
+
+  .extra {
+    animation-delay: 0.2s;
+  }
+}
+
+@keyframes header-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}

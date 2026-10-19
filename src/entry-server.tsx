@@ -43,6 +43,20 @@ function head(route: Route): string {
     };
     tags.push(`<script type="application/ld+json">${JSON.stringify(org)}</script>`);
   }
+  if (route.name) {
+    const trail = [{ name: 'Home', path: '/' }, ...(route.parents ?? []), { name: route.name, path: route.path }];
+    const breadcrumbs = {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: trail.map((c, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: c.name,
+        item: SITE.url + c.path,
+      })),
+    };
+    tags.push(`<script type="application/ld+json">${JSON.stringify(breadcrumbs).replace(/</g, '\\u003c')}</script>`);
+  }
   return tags.join('\n    ');
 }
 

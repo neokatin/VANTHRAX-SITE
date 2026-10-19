@@ -15,6 +15,19 @@ to GitHub Pages at **https://vanthrax.com**.
 | Icons | `lucide-react` | Tree-shaken, only used icons ship |
 | Fonts | Self-hosted Inter, Space Grotesk, IBM Plex Mono (`@fontsource`) | No third-party requests; strict CSP |
 
+## Pages
+
+| Path | Page |
+| --- | --- |
+| `/` | Home |
+| `/products/`, `/products/vsc/`, `/products/vcp/`, `/products/evsc/` | Portfolio and product detail pages |
+| `/solutions/` | Critical-infrastructure sectors |
+| `/government-enterprise/` | Government & enterprise engagement, contracts and references |
+| `/technology/` | Five-layer architecture and threat-intelligence demonstration |
+| `/company/` | Mission, principles, leadership |
+| `/contact/` | Inquiry channels and responsible disclosure |
+| `/legal/*` | Privacy, terms, accessibility |
+
 ## Commands
 
 ```bash
@@ -32,17 +45,21 @@ asset reference or `#fragment` in the generated HTML does not resolve.
 ```
 src/
   config/site.ts        Site metadata, navigation, contact channels
-  content/              Copy and data (products, sectors, layers, legal, threat vocabulary)
+  content/              Copy and data (products, sectors, layers, company, contact,
+                        references, legal, threat vocabulary)
   styles/               Tokens, fonts, base/global styles
   components/
     brand/              Emblem + logo
     layout/             Header (incl. mobile menu), footer, layout shell
-    ui/                 Button, section header, product brief dialog
+    ui/                 Button, section/page headers, content block, next-page band
+    products/           Product grid and product visual (render or drawing)
+    company/            Leadership
+    contact/            Contact channel list
     effects/            Pointer reticle
     visuals/            Hero lattice (canvas), threat map (canvas), layer stack,
-                        product drawings, data-hall drawing (SVG)
+                        product drawings, process diagrams, data-hall drawing (SVG)
   sections/             Home page sections (Hero, Products, Solutions, …)
-  pages/                Home, legal pages, 404
+  pages/                One component per route (products/, solutions, technology, …)
   routes.tsx            Route table: path, output file, title, description
   entry-client.tsx      Hydration entry
   entry-server.tsx      Prerender entry: HTML + per-page <head> (SEO, Open Graph, JSON-LD)
@@ -59,6 +76,13 @@ docs/IMAGE-ASSETS.md    Photography specifications and how to add images
 - **Contact channels:** set the `email` field for each channel in
   `src/config/site.ts`. Until at least one is set, the Contact section shows an
   explicit "channel opening soon" state; nothing pretends to submit.
+- **Security disclosure address:** set `SECURITY_CONTACT` in
+  `src/config/site.ts` once a monitored mailbox exists.
+- **Contracts and client reviews:** add entries to `src/content/references.ts`.
+  Only real engagements the client has authorized in writing may be added, and
+  each entry must state where it can be verified (`source`). While the lists
+  are empty, `/government-enterprise/` shows an explicit "nothing published"
+  state.
 - **Images:** drop files at the paths in `docs/IMAGE-ASSETS.md` and rebuild.
   They replace the illustrations automatically.
 - **New page:** add a page component in `src/pages/` and an entry in
@@ -75,9 +99,7 @@ One-time repository setup:
 2. **Settings → Pages → Custom domain:** `vanthrax.com` (already configured; DNS is unchanged).
 3. Enable **Enforce HTTPS** once the certificate is issued.
 
-`public/CNAME` is included in the build output. The root-level `CNAME` is kept
-for compatibility with the previous branch-based Pages setup and can be removed
-once Pages deploys from Actions.
+`public/CNAME` is included in the build output.
 
 To publish an update: merge to `main`. The site is live in about a minute.
 

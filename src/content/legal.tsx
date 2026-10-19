@@ -19,8 +19,8 @@ const UPDATED = '19 October 2026';
 
 const ContactLine = () => (
   <p>
-    Questions can be sent through the channels listed in the <a href="/#contact">Contact</a> section of this
-    website once they are open. Until then, no contact address is published.
+    Questions can be sent through the channels listed on the <a href="/contact/">Contact</a> page once they
+    are open. Until then, no contact address is published.
   </p>
 );
 

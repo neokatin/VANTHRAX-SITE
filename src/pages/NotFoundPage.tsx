@@ -15,7 +15,7 @@ export function NotFoundPage() {
         <ButtonLink href="/" arrow size="lg">
           Return to VANTHRAX
         </ButtonLink>
-        <ButtonLink href="/#contact" variant="secondary" size="lg">
+        <ButtonLink href="/contact/" variant="secondary" size="lg">
           Contact
         </ButtonLink>
       </div>

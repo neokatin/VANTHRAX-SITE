@@ -66,7 +66,8 @@ function motif(index: number, cy: number): string {
 
 interface LayerStackProps {
   active: number;
-  onSelect: (index: number) => void;
+  /** When omitted the diagram is display-only. */
+  onSelect?: (index: number) => void;
 }
 
 export function LayerStack({ active, onSelect }: LayerStackProps) {
@@ -92,7 +93,8 @@ export function LayerStack({ active, onSelect }: LayerStackProps) {
             className={styles.plate}
             data-active={i === active}
             data-below={i < active}
-            onClick={() => onSelect(i)}
+            data-interactive={!!onSelect}
+            onClick={onSelect ? () => onSelect(i) : undefined}
           >
             <path className={styles.side} d={d(left)} />
             <path className={styles.sideDark} d={d(right)} />
