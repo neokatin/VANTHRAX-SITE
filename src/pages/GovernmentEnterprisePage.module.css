@@ -100,8 +100,10 @@
 
 .timeline h3 {
   margin-top: var(--s-3);
-  font-family: var(--f-display);
+  font-family: var(--f-sans);
   font-size: var(--t-h4);
+  font-weight: 600;
+  letter-spacing: -0.015em;
 }
 
 .timeline p {
@@ -245,9 +247,11 @@
 
 .reviews blockquote {
   margin: var(--s-4) 0 0;
-  font-family: var(--f-display);
+  font-family: var(--f-sans);
   font-size: var(--t-h4);
   line-height: 1.35;
+  font-weight: 600;
+  letter-spacing: -0.015em;
 }
 
 .reviews figcaption {

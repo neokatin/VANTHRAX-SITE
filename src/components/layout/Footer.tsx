@@ -1,6 +1,7 @@
 import { ArrowUp } from 'lucide-react';
 import { LEGAL_NAV, SITE } from '../../config/site';
 import { PRODUCTS } from '../../content/products';
+import { Logo } from '../brand/Logo';
 import styles from './Footer.module.css';
 
 const SITE_NAV = [
@@ -18,15 +19,10 @@ export function Footer() {
     <footer id="site-footer" className={styles.footer}>
       <div className="container">
         <div className={styles.brand}>
-          <img
-            className={styles.lockup}
-            src="/images/brand/vanthrax-logo-banner.webp"
-            width={2000}
-            height={667}
-            alt="VANTHRAX Systems — Cybersecurity, Defense, Intelligence"
-            loading="lazy"
-            decoding="async"
-          />
+          <div className={styles.identity}>
+            <Logo size="lg" />
+            <p className={styles.descriptor}>Cybersecurity · Defense · Intelligence</p>
+          </div>
           <p className={`display ${styles.tagline}`}>
             Security without compromise<span className="accent-stop">.</span>
           </p>
@@ -82,6 +78,10 @@ export function Footer() {
             </p>
           </div>
         </div>
+
+        <p className={styles.signature} aria-hidden="true">
+          VANTHRAX
+        </p>
 
         <div className={styles.base}>
           <p>

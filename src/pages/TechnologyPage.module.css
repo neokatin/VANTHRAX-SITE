@@ -89,8 +89,10 @@
 
 .stepShort {
   margin-top: var(--s-4);
-  font-family: var(--f-display);
+  font-family: var(--f-sans);
   font-size: var(--t-h4);
+  font-weight: 600;
+  letter-spacing: -0.015em;
 }
 
 .stepBody {
@@ -156,9 +158,11 @@
 }
 
 .defense h3 {
-  margin-top: var(--s-5);
-  font-family: var(--f-display);
+  margin-top: 0;
+  font-family: var(--f-sans);
   font-size: var(--t-h4);
+  font-weight: 600;
+  letter-spacing: -0.015em;
 }
 
 .defense p {

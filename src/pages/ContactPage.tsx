@@ -15,7 +15,7 @@ export function ContactPage() {
         current="Contact"
         title={
           <>
-            Secure your future<span className="accent-stop">.</span>
+            Secure your future.
           </>
         }
         intro={

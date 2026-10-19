@@ -11,7 +11,7 @@ export function Products() {
           titleId="products-title"
           title={
             <>
-              Engineered for resilience<span className="accent-stop">.</span>
+              Engineered for resilience.
             </>
           }
           intro={

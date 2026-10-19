@@ -6,7 +6,7 @@ export function NotFoundPage() {
     <section className={`container ${styles.page}`} aria-labelledby="nf-title">
       <p className={`mono ${styles.code}`}>Error 404 — Resource not found</p>
       <h1 id="nf-title" className={`display ${styles.title}`}>
-        This path does not exist<span className="accent-stop">.</span>
+        This path does not exist.
       </h1>
       <p className={`lead ${styles.text}`}>
         The page you requested could not be located. It may have moved, or the address may be incorrect.

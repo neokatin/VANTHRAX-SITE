@@ -337,11 +337,11 @@
 }
 
 .pillarTitle {
-  margin-top: var(--s-4);
-  font-family: var(--f-display);
+  margin-top: 0;
+  font-family: var(--f-sans);
   font-size: var(--t-h3);
-  text-transform: uppercase;
-  letter-spacing: var(--track-display);
+  font-weight: 600;
+  letter-spacing: -0.015em;
 }
 
 .pillarBody {

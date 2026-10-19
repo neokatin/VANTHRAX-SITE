@@ -76,8 +76,8 @@
 
 .title {
   font-size: var(--t-hero);
-  line-height: 0.9;
-  letter-spacing: -0.035em;
+  line-height: 0.92;
+  letter-spacing: -0.022em;
   max-width: 11ch;
 }
 

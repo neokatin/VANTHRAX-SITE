@@ -7,7 +7,7 @@ export interface Crumb {
 }
 
 interface PageHeaderProps {
-  index: string;
+  index?: string;
   eyebrow: string;
   title: ReactNode;
   intro?: ReactNode;
@@ -41,8 +41,12 @@ export function PageHeader({ index, eyebrow, title, intro, crumbs = [], current,
 
         <div className={`grid-12 ${styles.body}`}>
           <p className={`mono ${styles.meta}`}>
-            <span className={styles.index}>{index}</span>
-            <span className={styles.rule} aria-hidden="true" />
+            {index && (
+              <>
+                <span className={styles.index}>{index}</span>
+                <span className={styles.rule} aria-hidden="true" />
+              </>
+            )}
             <span>{eyebrow}</span>
           </p>
           <h1 className={`display ${styles.title}`}>{title}</h1>

@@ -15,7 +15,7 @@ export function CompanyPage() {
         current="Company"
         title={
           <>
-            Built to defend what matters<span className="accent-stop">.</span>
+            Built to defend what matters.
           </>
         }
         intro={
@@ -44,7 +44,6 @@ export function CompanyPage() {
         <ol role="list" className={styles.principles}>
           {PRINCIPLES.map((p, i) => (
             <li key={p.title} data-reveal style={{ '--reveal-delay': `${(i % 2) * 90}ms` } as React.CSSProperties}>
-              <span className="mono">P—0{i + 1}</span>
               <h3>{p.title}</h3>
               <p className={styles.pBody}>{p.body}</p>
               <p className={styles.pDetail}>{p.detail}</p>
@@ -63,7 +62,6 @@ export function CompanyPage() {
         <ol role="list" className={styles.commitments}>
           {COMMITMENTS.map((c, i) => (
             <li key={c} data-reveal style={{ '--reveal-delay': `${i * 80}ms` } as React.CSSProperties}>
-              <span className="mono">0{i + 1}</span>
               <p>{c}</p>
             </li>
           ))}

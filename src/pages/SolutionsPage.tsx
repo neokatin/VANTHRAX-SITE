@@ -40,7 +40,7 @@ export function SolutionsPage() {
         current="Solutions"
         title={
           <>
-            When systems cannot fail<span className="accent-stop">.</span>
+            When systems cannot fail.
           </>
         }
         intro={
@@ -83,10 +83,9 @@ export function SolutionsPage() {
             </h2>
             <nav aria-label="Sectors">
               <ol role="list">
-                {SECTORS.map((s, i) => (
+                {SECTORS.map((s) => (
                   <li key={s.id}>
                     <a href={`#${s.id}`} aria-current={active === s.id ? 'location' : undefined}>
-                      <span className="mono">S—0{i + 1}</span>
                       {s.name}
                     </a>
                   </li>
@@ -96,12 +95,11 @@ export function SolutionsPage() {
           </aside>
 
           <div className={styles.list}>
-            {SECTORS.map((sector, i) => {
+            {SECTORS.map((sector) => {
               const Icon = sector.icon;
               return (
                 <article key={sector.id} id={sector.id} className={styles.sector} aria-labelledby={`${sector.id}-h`}>
                   <div className={styles.sectorTop}>
-                    <span className="mono">S—0{i + 1}</span>
                     <Icon size={26} strokeWidth={1.25} aria-hidden="true" />
                   </div>
                   <h3 id={`${sector.id}-h`} className={`display ${styles.sectorName}`}>
@@ -158,7 +156,6 @@ export function SolutionsPage() {
         <ol role="list" className={styles.principles}>
           {PRINCIPLES.map((p, i) => (
             <li key={p.title} data-reveal style={{ '--reveal-delay': `${i * 100}ms` } as React.CSSProperties}>
-              <span className="mono">R—0{i + 1}</span>
               <h3>{p.title}</h3>
               <p>{p.body}</p>
             </li>

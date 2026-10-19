@@ -44,13 +44,13 @@ export function GovernmentEnterprisePage() {
   return (
     <>
       <PageHeader
-        index="G/E"
-        eyebrow="Government & Enterprise"
+        index="02"
+        eyebrow="Solutions — Government & Enterprise"
         crumbs={[{ name: 'Solutions', href: '/solutions/' }]}
         current="Government & Enterprise"
         title={
           <>
-            For institutions that cannot fail<span className="accent-stop">.</span>
+            For institutions that cannot fail.
           </>
         }
         intro={
@@ -88,7 +88,7 @@ export function GovernmentEnterprisePage() {
           {ENGAGEMENT.map((step, i) => (
             <li key={step.title} data-reveal style={{ '--reveal-delay': `${i * 80}ms` } as React.CSSProperties}>
               <span className={styles.node} aria-hidden="true" />
-              <span className="mono">E—0{i + 1}</span>
+              <span className="mono">Step 0{i + 1}</span>
               <h3>{step.title}</h3>
               <p>{step.body}</p>
             </li>
