@@ -11,7 +11,7 @@
 }
 
 .header[data-scrolled='true'] {
-  background: rgb(8 9 11 / 0.74);
+  background: rgb(8 9 11 / 0.88);
   border-bottom-color: var(--c-border);
   backdrop-filter: blur(16px) saturate(140%);
   -webkit-backdrop-filter: blur(16px) saturate(140%);
@@ -231,6 +231,10 @@
   line-height: 1.1;
   letter-spacing: var(--track-display);
   text-transform: uppercase;
+}
+
+.menuLink[aria-current='page'] {
+  color: var(--c-red-text);
 }
 
 .menuLink .mono,

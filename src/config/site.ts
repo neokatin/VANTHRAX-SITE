@@ -59,19 +59,26 @@ export const CONTACT_CHANNELS: readonly ContactChannel[] = [
 
 export const isContactConfigured = CONTACT_CHANNELS.some((c) => c.email.length > 0);
 
+/**
+ * Address for responsible disclosure of security vulnerabilities. Leave empty
+ * until it is monitored; the Contact page then states the channel is not open.
+ */
+export const SECURITY_CONTACT = '';
+
+export type NavKey = 'products' | 'solutions' | 'technology' | 'company' | 'contact';
+
 export interface NavItem {
   label: string;
   href: string;
-  /** Section id used for scroll-spy on the home page. */
-  section: string;
+  key: NavKey;
 }
 
 export const PRIMARY_NAV: readonly NavItem[] = [
-  { label: 'Products', href: '/#products', section: 'products' },
-  { label: 'Solutions', href: '/#solutions', section: 'solutions' },
-  { label: 'Technology', href: '/#technology', section: 'technology' },
-  { label: 'Company', href: '/#company', section: 'company' },
-  { label: 'Contact', href: '/#contact', section: 'contact' },
+  { label: 'Products', href: '/products/', key: 'products' },
+  { label: 'Solutions', href: '/solutions/', key: 'solutions' },
+  { label: 'Technology', href: '/technology/', key: 'technology' },
+  { label: 'Company', href: '/company/', key: 'company' },
+  { label: 'Contact', href: '/contact/', key: 'contact' },
 ];
 
 export const LEGAL_NAV = [

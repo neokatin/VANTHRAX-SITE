@@ -1,10 +1,11 @@
 import { useEffect, type ReactNode } from 'react';
+import type { NavKey } from '../../config/site';
 import { Cursor } from '../effects/Cursor';
 import { Footer } from './Footer';
 import { Header } from './Header';
 
 interface LayoutProps {
-  isHome: boolean;
+  active?: NavKey;
   children: ReactNode;
 }
 
@@ -46,7 +47,7 @@ function ColumnGuides() {
   );
 }
 
-export function Layout({ isHome, children }: LayoutProps) {
+export function Layout({ active, children }: LayoutProps) {
   useScrollReveal();
   return (
     <div id="top">
@@ -54,7 +55,7 @@ export function Layout({ isHome, children }: LayoutProps) {
         Skip to main content
       </a>
       <ColumnGuides />
-      <Header isHome={isHome} />
+      <Header active={active} />
       <main id="main" tabIndex={-1}>
         {children}
       </main>

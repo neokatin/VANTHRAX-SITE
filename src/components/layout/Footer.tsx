@@ -1,14 +1,16 @@
 import { ArrowUp } from 'lucide-react';
 import { LEGAL_NAV, SITE } from '../../config/site';
+import { PRODUCTS } from '../../content/products';
 import styles from './Footer.module.css';
 
 const SITE_NAV = [
-  { label: 'Products', href: '/#products' },
-  { label: 'Solutions', href: '/#solutions' },
-  { label: 'Threat Intelligence', href: '/#intelligence' },
-  { label: 'Technology', href: '/#technology' },
-  { label: 'Company', href: '/#company' },
-  { label: 'Contact', href: '/#contact' },
+  { label: 'Products', href: '/products/' },
+  { label: 'Solutions', href: '/solutions/' },
+  { label: 'Government & Enterprise', href: '/government-enterprise/' },
+  { label: 'Technology', href: '/technology/' },
+  { label: 'Threat Intelligence', href: '/technology/#intelligence' },
+  { label: 'Company', href: '/company/' },
+  { label: 'Contact', href: '/contact/' },
 ];
 
 export function Footer() {
@@ -39,6 +41,20 @@ export function Footer() {
               {SITE_NAV.map((l) => (
                 <li key={l.href}>
                   <a href={l.href}>{l.label}</a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <nav aria-labelledby="footer-products" className={styles.col}>
+            <h2 id="footer-products" className="mono">
+              Products
+            </h2>
+            <ul role="list">
+              {PRODUCTS.map((p) => (
+                <li key={p.id}>
+                  <a href={`/products/${p.id}/`}>
+                    {p.code} — {p.category}
+                  </a>
                 </li>
               ))}
             </ul>

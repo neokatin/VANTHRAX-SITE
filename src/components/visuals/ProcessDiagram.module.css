@@ -1,0 +1,167 @@
+.frame {
+  padding: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+  border: 1px solid var(--c-border);
+  background:
+    linear-gradient(var(--c-line) 1px, transparent 1px) 0 0 / 24px 24px,
+    linear-gradient(90deg, var(--c-line) 1px, transparent 1px) 0 0 / 24px 24px,
+    var(--c-bg-2);
+}
+
+.svg {
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+  margin-inline: auto;
+  overflow: visible;
+}
+
+.rail,
+.lifeline {
+  fill: none;
+  stroke: rgb(240 241 243 / 0.22);
+  stroke-width: 1;
+}
+
+.lifeline {
+  stroke-dasharray: 3 4;
+}
+
+.ringFaint {
+  fill: none;
+  stroke: rgb(240 241 243 / 0.07);
+  stroke-dasharray: 2 5;
+}
+
+.pulse {
+  fill: none;
+  stroke: var(--c-red-critical);
+  stroke-width: 2;
+  stroke-dasharray: 22 600;
+  opacity: 0;
+}
+
+.node,
+.nodeRoot,
+.device,
+.hostBox,
+.badge {
+  fill: var(--c-surface);
+  stroke: rgb(240 241 243 / 0.4);
+  stroke-width: 1;
+}
+
+.nodeRoot {
+  fill: rgb(181 18 36 / 0.22);
+  stroke: var(--c-red-critical);
+}
+
+.hostBox {
+  fill: rgb(16 18 22 / 0.8);
+  stroke-dasharray: 3 3;
+}
+
+.badge {
+  fill: var(--c-bg);
+  stroke: var(--c-border-strong);
+}
+
+.device {
+  fill: var(--c-bg);
+}
+
+.gate path:first-child {
+  fill: var(--c-bg);
+  stroke: var(--c-red-critical);
+  stroke-width: 1;
+}
+
+.tick {
+  stroke: rgb(240 241 243 / 0.2);
+  stroke-width: 1;
+}
+
+.label,
+.labelRoot,
+.small,
+.badgeText {
+  font-family: var(--f-mono);
+  letter-spacing: 0.1em;
+}
+
+.label,
+.labelRoot {
+  font-size: 12px;
+  fill: var(--c-text);
+}
+
+.labelRoot {
+  fill: #ff8b97;
+}
+
+.small {
+  font-size: 8.5px;
+  fill: var(--c-text-3);
+}
+
+.badgeText {
+  font-size: 9px;
+  fill: var(--c-text-2);
+}
+
+.message,
+.messageRed {
+  stroke: rgb(240 241 243 / 0.55);
+  stroke-width: 1;
+}
+
+.messageRed {
+  stroke: var(--c-red-critical);
+}
+
+.arrow,
+.arrowRed {
+  fill: none;
+  stroke: rgb(240 241 243 / 0.7);
+  stroke-width: 1.2;
+}
+
+.arrowRed {
+  stroke: var(--c-red-critical);
+}
+
+.arc {
+  fill: none;
+  stroke: var(--c-red-critical);
+  stroke-width: 1.5;
+  opacity: 0.6;
+}
+
+.dotRed {
+  fill: var(--c-red-critical);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .pulse {
+    opacity: 1;
+    animation: travel 3.6s var(--ease-in-out) infinite;
+  }
+
+  .orbit {
+    animation: spin 9s linear infinite;
+  }
+}
+
+@keyframes travel {
+  from {
+    stroke-dashoffset: 22;
+  }
+  to {
+    stroke-dashoffset: -600;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

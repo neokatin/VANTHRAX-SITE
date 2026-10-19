@@ -1,28 +1,8 @@
-import { Emblem } from '../components/brand/Emblem';
+import { Leadership } from '../components/company/Leadership';
+import { PRINCIPLES } from '../content/company';
 import { SectionHeader } from '../components/ui/SectionHeader';
-import { IMAGES, imageIfAvailable } from '../lib/images';
 import styles from './Company.module.css';
 
-const portrait = imageIfAvailable(IMAGES.ceoPortrait);
-
-const PRINCIPLES = [
-  {
-    title: 'Architecture first',
-    body: 'Protection is designed into systems from their foundations. It is never bolted on after the fact.',
-  },
-  {
-    title: 'Defense in depth',
-    body: 'No single control is trusted to hold alone. Every layer assumes the one beneath it may be tested.',
-  },
-  {
-    title: 'Restraint',
-    body: 'We build what is necessary and nothing more. Complexity is an attack surface.',
-  },
-  {
-    title: 'Accountability',
-    body: 'Security is a responsibility to the people who depend on the systems we protect.',
-  },
-];
 
 export function Company() {
   return (
@@ -37,6 +17,7 @@ export function Company() {
               Built to defend what matters<span className="accent-stop">.</span>
             </>
           }
+          link={{ href: '/company/', label: 'About VANTHRAX' }}
           intro={
             <>
               <p>
@@ -61,47 +42,7 @@ export function Company() {
           ))}
         </ol>
 
-        <div className={styles.leadership}>
-          <h3 id="leadership-title" className={`mono ${styles.leadershipLabel}`}>
-            Executive leadership
-          </h3>
-          <div className={styles.leader}>
-            <div className={styles.portrait} data-reveal="fade">
-              {portrait ? (
-                <img
-                  src={portrait.src}
-                  width={portrait.width}
-                  height={portrait.height}
-                  alt={portrait.alt}
-                  loading="lazy"
-                  decoding="async"
-                />
-              ) : (
-                <div className={styles.placeholder}>
-                  <Emblem size={120} className={styles.watermark} />
-                  <span className={`mono ${styles.placeholderTag}`}>Official portrait forthcoming</span>
-                </div>
-              )}
-              <span className={`mono ${styles.frameTag}`} aria-hidden="true">
-                VR / CEO
-              </span>
-            </div>
-            <div className={styles.bio} data-reveal>
-              <p className={`mono ${styles.role}`}>Founder &amp; Chief Executive Officer</p>
-              <p className={`display ${styles.name}`}>Vexy Razor</p>
-              <div className={styles.bioText}>
-                <p>
-                  Vexy Razor founded VANTHRAX Systems on a single conviction: that the systems civilization
-                  depends on deserve protection designed in from the beginning — not added after failure.
-                </p>
-                <p>
-                  As Chief Executive Officer, Vexy Razor sets the direction of the company and holds it to the
-                  standard its name implies: security without compromise.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Leadership />
       </div>
     </section>
   );

@@ -28,6 +28,7 @@ export function Infrastructure() {
               When systems cannot fail<span className="accent-stop">.</span>
             </>
           }
+          link={{ href: '/solutions/', label: 'Explore solutions by sector' }}
           intro={
             <p>
               Some systems are allowed to fail. Others are not. VANTHRAX exists to protect the second kind — the

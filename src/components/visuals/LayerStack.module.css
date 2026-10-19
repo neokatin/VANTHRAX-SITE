@@ -11,10 +11,14 @@
 }
 
 .plate {
-  cursor: pointer;
+  cursor: default;
   transition:
     transform var(--dur-4) var(--ease-out),
     opacity var(--dur-3) var(--ease-out);
+}
+
+.plate[data-interactive='true'] {
+  cursor: pointer;
 }
 
 .plate[data-active='true'] {
@@ -69,7 +73,7 @@
   fill: var(--c-red-text);
 }
 
-.plate:hover .top {
+.plate[data-interactive='true']:hover .top {
   stroke: rgb(240 241 243 / 0.6);
 }
 

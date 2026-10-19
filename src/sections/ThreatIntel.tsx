@@ -23,7 +23,12 @@ const PILLARS = [
   },
 ];
 
-export function ThreatIntel() {
+interface ThreatIntelProps {
+  index?: string;
+  link?: { href: string; label: string };
+}
+
+export function ThreatIntel({ index = '03', link }: ThreatIntelProps) {
   const reduced = useReducedMotion();
   const [userPaused, setUserPaused] = useState<boolean | null>(null);
   const paused = userPaused ?? reduced;
@@ -83,9 +88,10 @@ export function ThreatIntel() {
     <section id="intelligence" className="section" aria-labelledby="intelligence-title">
       <div className="container">
         <SectionHeader
-          index="03"
+          index={index}
           eyebrow="Threat intelligence"
           titleId="intelligence-title"
+          link={link}
           title={
             <>
               The threat landscape never stands still<span className="accent-stop">.</span>

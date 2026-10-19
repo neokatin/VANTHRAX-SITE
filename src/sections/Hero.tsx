@@ -83,10 +83,10 @@ export function Hero() {
           VANTHRAX delivers uncompromising protection against an evolving digital threat landscape.
         </p>
         <div className={styles.actions}>
-          <ButtonLink href="#technology" size="lg" arrow>
+          <ButtonLink href="/technology/" size="lg" arrow>
             Explore Our Technology
           </ButtonLink>
-          <ButtonLink href="#company" variant="secondary" size="lg">
+          <ButtonLink href="/company/" variant="secondary" size="lg">
             Discover VANTHRAX
           </ButtonLink>
         </div>

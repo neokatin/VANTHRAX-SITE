@@ -1,17 +1,17 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { PRIMARY_NAV } from '../../config/site';
+import { PRIMARY_NAV, type NavKey } from '../../config/site';
 import { Logo } from '../brand/Logo';
 import { ButtonLink } from '../ui/Button';
 import styles from './Header.module.css';
 
 interface HeaderProps {
-  isHome: boolean;
+  /** Primary section the current page belongs to. */
+  active?: NavKey;
 }
 
-export function Header({ isHome }: HeaderProps) {
+export function Header({ active }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [active, setActive] = useState<string | null>(null);
   const progressRef = useRef<HTMLDivElement>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -40,31 +40,6 @@ export function Header({ isHome }: HeaderProps) {
       window.removeEventListener('resize', onScroll);
     };
   }, []);
-
-  // Scroll-spy: highlight the section currently occupying the reading line.
-  useEffect(() => {
-    if (!isHome) return;
-    const sections = PRIMARY_NAV.map((n) => document.getElementById(n.section)).filter(
-      (el): el is HTMLElement => el !== null,
-    );
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) setActive(entry.target.id);
-        }
-      },
-      { rootMargin: '-45% 0px -50% 0px' },
-    );
-    sections.forEach((s) => io.observe(s));
-    const onTop = () => {
-      if (window.scrollY < window.innerHeight * 0.5) setActive(null);
-    };
-    window.addEventListener('scroll', onTop, { passive: true });
-    return () => {
-      io.disconnect();
-      window.removeEventListener('scroll', onTop);
-    };
-  }, [isHome]);
 
   const close = useCallback((restoreFocus = true) => {
     setOpen(false);
@@ -105,7 +80,7 @@ export function Header({ isHome }: HeaderProps) {
                 <a
                   href={item.href}
                   className={styles.link}
-                  aria-current={active === item.section ? 'location' : undefined}
+                  aria-current={active === item.key ? 'page' : undefined}
                 >
                   {item.label}
                 </a>
@@ -115,7 +90,7 @@ export function Header({ isHome }: HeaderProps) {
         </nav>
 
         <div className={styles.actions}>
-          <ButtonLink href="/#solutions" variant="primary" className={styles.cta} arrow>
+          <ButtonLink href="/solutions/" variant="primary" className={styles.cta} arrow>
             Explore Solutions
           </ButtonLink>
           <button
@@ -149,7 +124,12 @@ export function Header({ isHome }: HeaderProps) {
           <ol role="list" className={styles.menuList}>
             {PRIMARY_NAV.map((item, i) => (
               <li key={item.href} style={{ '--i': i } as React.CSSProperties}>
-                <a href={item.href} className={styles.menuLink} onClick={() => close(false)}>
+                <a
+                  href={item.href}
+                  className={styles.menuLink}
+                  aria-current={active === item.key ? 'page' : undefined}
+                  onClick={() => close(false)}
+                >
                   <span className="mono" aria-hidden="true">
                     0{i + 1}
                   </span>
@@ -160,7 +140,7 @@ export function Header({ isHome }: HeaderProps) {
           </ol>
         </nav>
         <div className={styles.menuFoot}>
-          <ButtonLink href="/#solutions" size="lg" arrow onClick={() => close(false)}>
+          <ButtonLink href="/solutions/" size="lg" arrow onClick={() => close(false)}>
             Explore Solutions
           </ButtonLink>
           <p className="mono">Security without compromise.</p>

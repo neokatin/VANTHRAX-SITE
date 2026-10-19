@@ -1,13 +1,10 @@
-.section {
-  padding-bottom: calc(var(--section-y) * 0.85);
-}
-
 .channels {
   border-top: 1px solid var(--c-border);
 }
 
 .channel {
   position: relative;
+  scroll-margin-top: calc(var(--nav-h) + 1rem);
   display: grid;
   grid-template-columns: 2.5rem 1fr;
   gap: var(--s-3) var(--s-4);
