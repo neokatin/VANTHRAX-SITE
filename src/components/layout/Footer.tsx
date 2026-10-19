@@ -87,6 +87,9 @@ export function Footer() {
           <p>
             © {SITE.year} {SITE.name}. All rights reserved.
           </p>
+          <a href="/sitemap/" className={styles.sitemap}>
+            Sitemap
+          </a>
           <a href="#top" className={styles.top}>
             Back to top <ArrowUp size={14} strokeWidth={1.75} aria-hidden="true" />
           </a>

@@ -77,6 +77,19 @@
   font-size: var(--t-micro);
 }
 
+.sitemap {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-left: auto;
+  color: var(--c-text-2);
+  transition: color var(--dur-2);
+}
+
+.sitemap:hover {
+  color: var(--c-text);
+}
+
 .top {
   display: inline-flex;
   align-items: center;
