@@ -1,0 +1,184 @@
+.section {
+  background: linear-gradient(to bottom, var(--c-bg), var(--c-bg-2) 30%, var(--c-bg-2) 70%, var(--c-bg));
+}
+
+.figure {
+  margin-bottom: clamp(3rem, 2rem + 3vw, 5rem);
+}
+
+.frame {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border: 1px solid var(--c-border);
+  background: var(--c-bg-2);
+}
+
+@media (min-width: 700px) {
+  .frame {
+    aspect-ratio: 21 / 9;
+  }
+}
+
+.frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgb(16 18 22 / 0.7), transparent 40%);
+  pointer-events: none;
+}
+
+.figure figcaption {
+  margin-top: var(--s-3);
+  color: var(--c-text-3);
+}
+
+.figure figcaption span {
+  color: var(--c-red-text);
+  margin-right: 0.75rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));
+  gap: 1px;
+  background: var(--c-border);
+  border: 1px solid var(--c-border);
+}
+
+@media (min-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.cell {
+  --mx: 50%;
+  --my: 50%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 19rem;
+  padding: clamp(1.25rem, 1rem + 1vw, 2rem);
+  background: var(--c-bg-2);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.cell::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(320px circle at var(--mx) var(--my), rgb(240 241 243 / 0.06), transparent 70%);
+  opacity: 0;
+  transition: opacity var(--dur-3) var(--ease-out);
+}
+
+.cell::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: var(--c-red);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform var(--dur-4) var(--ease-out);
+}
+
+.cell:hover::before {
+  opacity: 1;
+}
+
+.cell:hover::after {
+  transform: scaleY(1);
+}
+
+.cellTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  color: var(--c-text-3);
+}
+
+.icon {
+  color: var(--c-text-2);
+  transition:
+    color var(--dur-3) var(--ease-out),
+    transform var(--dur-3) var(--ease-out);
+}
+
+.cell:hover .icon {
+  color: var(--c-red-critical);
+  transform: translateY(-2px);
+}
+
+.name {
+  margin-top: var(--s-8);
+  font-family: var(--f-display);
+  font-size: var(--t-h4);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.desc {
+  margin-top: var(--s-3);
+  margin-bottom: var(--s-5);
+  color: var(--c-text-2);
+  font-size: var(--t-small);
+}
+
+.focus {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: auto;
+  padding-top: var(--s-4);
+  border-top: 1px solid var(--c-border);
+  color: var(--c-text-3);
+  font-size: var(--t-nano);
+  transition: color var(--dur-3) var(--ease-out);
+}
+
+.focusDot {
+  width: 5px;
+  height: 5px;
+  background: var(--c-border-strong);
+  transition: background-color var(--dur-3) var(--ease-out);
+}
+
+.cell:hover .focus {
+  color: var(--c-text);
+}
+
+.cell:hover .focusDot {
+  background: var(--c-red-critical);
+}
+
+.statement {
+  justify-content: flex-end;
+  background:
+    linear-gradient(135deg, rgb(181 18 36 / 0.16), transparent 60%),
+    var(--c-bg-2);
+}
+
+.statementText {
+  font-size: clamp(1.75rem, 1.2rem + 1.6vw, 2.5rem);
+  line-height: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cell::after,
+  .icon {
+    transition: none;
+  }
+}

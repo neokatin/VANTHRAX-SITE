@@ -1,0 +1,104 @@
+/* ==========================================================================
+   VANTHRAX design tokens
+   Colour, type, space and motion primitives. Components consume these via
+   CSS custom properties only — never hard-coded values.
+   ========================================================================== */
+
+:root {
+  /* --- Colour ----------------------------------------------------------- */
+  --c-bg: #08090b;
+  --c-bg-2: #101216;
+  --c-surface: #171a20;
+  --c-surface-2: #1d2128;
+  --c-text: #f0f1f3;
+  --c-text-2: #9297a2;
+  --c-text-3: #80858f; /* minimum for small text on surfaces (≥4.5:1) */
+  --c-border: #282c34;
+  --c-border-strong: #3a3f49;
+
+  --c-red: #b51224; /* fills, rules, large display accents */
+  --c-red-critical: #e02b3f; /* alerts, illuminated details */
+  --c-red-text: #f04a5c; /* red at small text sizes (≥4.5:1 on bg + surface) */
+  --c-red-wash: rgb(181 18 36 / 0.1);
+  --c-signal: #6fbf9a; /* nominal status dots only */
+
+  --c-line: rgb(240 241 243 / 0.06);
+  --c-line-2: rgb(240 241 243 / 0.1);
+  --c-scrim: rgb(8 9 11 / 0.78);
+
+  /* --- Typography ------------------------------------------------------- */
+  --f-display: 'Space Grotesk Variable', 'Inter Variable', 'Inter Fallback', system-ui, sans-serif;
+  --f-sans: 'Inter Variable', 'Inter Fallback', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --f-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+
+  --t-hero: clamp(2.5rem, 0.6rem + 7.6vw, 8.25rem);
+  --t-h1: clamp(2.375rem, 1.2rem + 4.6vw, 6rem);
+  --t-h2: clamp(2rem, 1.15rem + 3.5vw, 4.75rem);
+  --t-h3: clamp(1.375rem, 1.15rem + 0.9vw, 1.875rem);
+  --t-h4: clamp(1.125rem, 1.05rem + 0.3vw, 1.3125rem);
+  --t-lead: clamp(1.0625rem, 0.98rem + 0.4vw, 1.3125rem);
+  --t-body: 1rem;
+  --t-small: 0.875rem;
+  --t-micro: 0.75rem;
+  --t-nano: 0.6875rem;
+
+  --lh-tight: 0.94;
+  --lh-snug: 1.15;
+  --lh-body: 1.6;
+
+  --track-display: -0.025em;
+  --track-caps: 0.16em;
+  --track-mono: 0.08em;
+
+  /* --- Space & layout --------------------------------------------------- */
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 0.75rem;
+  --s-4: 1rem;
+  --s-5: 1.5rem;
+  --s-6: 2rem;
+  --s-7: 3rem;
+  --s-8: 4rem;
+  --s-9: 6rem;
+  --s-10: 8rem;
+  --s-11: 11rem;
+
+  --gutter: clamp(1rem, 0.4rem + 3vw, 3.5rem);
+  --container: 1440px;
+  --section-y: clamp(5rem, 2.5rem + 6.5vw, 9rem);
+  --nav-h: 72px;
+
+  --r-1: 2px;
+  --r-2: 4px;
+
+  /* --- Motion ----------------------------------------------------------- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-1: 160ms;
+  --dur-2: 280ms;
+  --dur-3: 560ms;
+  --dur-4: 900ms;
+
+  --z-grid: 0;
+  --z-content: 1;
+  --z-nav: 50;
+  --z-menu: 60;
+  --z-dialog: 70;
+  --z-cursor: 90;
+}
+
+@media (max-width: 960px) {
+  :root {
+    --nav-h: 64px;
+  }
+}
+
+/* Metric-matched fallback keeps text from shifting when Inter arrives. */
+@font-face {
+  font-family: 'Inter Fallback';
+  src: local('Arial'), local('Helvetica Neue'), local('Helvetica');
+  ascent-override: 90.44%;
+  descent-override: 22.52%;
+  line-gap-override: 0%;
+  size-adjust: 107.12%;
+}
