@@ -10,6 +10,7 @@ import { LegalPage } from './pages/LegalPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { ProductPage } from './pages/products/ProductPage';
 import { ProductsIndexPage } from './pages/products/ProductsIndexPage';
+import { SitemapPage } from './pages/SitemapPage';
 import { SolutionsPage } from './pages/SolutionsPage';
 import { TechnologyPage } from './pages/TechnologyPage';
 
@@ -111,6 +112,13 @@ export const ROUTES: Route[] = [
     render: () => <ContactPage />,
   }),
   ...legal,
+  page('/sitemap/', {
+    title: `Sitemap — ${SITE.name}`,
+    description: 'Every page on vanthrax.com.',
+    name: 'Sitemap',
+    // Read at render time, after ROUTES is fully defined.
+    render: () => <SitemapPage routes={ROUTES} />,
+  }),
 ];
 
 export const NOT_FOUND: Route = {
