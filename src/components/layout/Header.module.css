@@ -1,0 +1,266 @@
+.header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: var(--z-nav);
+  height: var(--nav-h);
+  border-bottom: 1px solid transparent;
+  transition:
+    background-color var(--dur-3) var(--ease-out),
+    border-color var(--dur-3) var(--ease-out),
+    backdrop-filter var(--dur-3) var(--ease-out);
+}
+
+.header[data-scrolled='true'] {
+  background: rgb(8 9 11 / 0.74);
+  border-bottom-color: var(--c-border);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .header[data-scrolled='true'] {
+    background: rgb(8 9 11 / 0.96);
+  }
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-5);
+  height: 100%;
+}
+
+/* --- Desktop links -------------------------------------------------------- */
+
+.nav {
+  display: none;
+}
+
+.links {
+  display: flex;
+  gap: clamp(1.25rem, 2.6vw, 2.75rem);
+}
+
+.link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: var(--t-small);
+  color: var(--c-text-2);
+  transition: color var(--dur-2) var(--ease-out);
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 9px;
+  height: 1px;
+  background: var(--c-text);
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform var(--dur-3) var(--ease-out);
+}
+
+.link:hover {
+  color: var(--c-text);
+}
+
+.link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+.link[aria-current]::after {
+  background: var(--c-red-critical);
+  transform: scaleX(1);
+}
+
+.link[aria-current] {
+  color: var(--c-text);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+}
+
+.cta {
+  display: none;
+}
+
+@media (min-width: 961px) {
+  .nav {
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .cta {
+    display: inline-flex;
+  }
+
+  .toggle {
+    display: none !important;
+  }
+}
+
+/* --- Progress hairline ---------------------------------------------------- */
+
+.progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity var(--dur-3) var(--ease-out);
+}
+
+.header[data-scrolled='true'] .progress {
+  opacity: 1;
+}
+
+.header[data-open='true'] .progress {
+  opacity: 0;
+}
+
+.progressBar {
+  height: 100%;
+  background: var(--c-red);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+/* --- Mobile toggle -------------------------------------------------------- */
+
+.toggle {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-right: -10px;
+  border-radius: var(--r-1);
+}
+
+.toggleLines,
+.toggleLines::before {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--c-text);
+  transition: transform var(--dur-3) var(--ease-out);
+}
+
+.toggleLines {
+  position: relative;
+  transform: translateY(-4px);
+}
+
+.toggleLines::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 14px;
+  transition:
+    transform var(--dur-3) var(--ease-out),
+    width var(--dur-3) var(--ease-out);
+}
+
+.toggle[aria-expanded='true'] .toggleLines {
+  transform: rotate(45deg);
+}
+
+.toggle[aria-expanded='true'] .toggleLines::before {
+  width: 22px;
+  transform: translateY(-8px) rotate(-90deg);
+}
+
+/* --- Mobile menu panel ---------------------------------------------------- */
+
+.menu {
+  position: fixed;
+  inset: var(--nav-h) 0 0;
+  z-index: var(--z-menu);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--s-6) var(--gutter) calc(var(--s-6) + env(safe-area-inset-bottom));
+  background: var(--c-bg);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.menu::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--c-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--c-line) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(to bottom, transparent, #000 40%, #000);
+  pointer-events: none;
+}
+
+.menuList {
+  position: relative;
+  border-top: 1px solid var(--c-border);
+}
+
+.menuList li {
+  border-bottom: 1px solid var(--c-border);
+}
+
+.menuLink {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-4);
+  padding-block: 1.1rem;
+  font-family: var(--f-display);
+  font-size: clamp(1.75rem, 7vw, 2.5rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: var(--track-display);
+  text-transform: uppercase;
+}
+
+.menuLink .mono,
+.menuLink :global(.mono) {
+  color: var(--c-red-text);
+  min-width: 2ch;
+}
+
+.menuFoot {
+  position: relative;
+  display: grid;
+  gap: var(--s-5);
+  margin-top: var(--s-7);
+  color: var(--c-text-3);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .menu:not([hidden]) .menuList li {
+    animation: menu-in var(--dur-4) var(--ease-out) both;
+    animation-delay: calc(var(--i) * 45ms + 40ms);
+  }
+}
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+:global(html.menu-open) {
+  overflow: hidden;
+}

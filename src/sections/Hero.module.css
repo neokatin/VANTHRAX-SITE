@@ -1,0 +1,236 @@
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding-top: var(--nav-h);
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--c-bg);
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.45;
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--c-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--c-line) 1px, transparent 1px);
+  background-size: 64px 64px;
+  background-position: center center;
+  mask-image: radial-gradient(ellipse 70% 70% at 70% 50%, #000 0%, rgb(0 0 0 / 0.35) 55%, transparent 85%);
+}
+
+.backdrop::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, var(--c-bg) 0%, rgb(8 9 11 / 0.6) 38%, transparent 60%),
+    linear-gradient(to top, var(--c-bg) 0%, transparent 28%);
+}
+
+.parallax {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  will-change: transform;
+}
+
+.inner {
+  position: relative;
+  padding-bottom: clamp(3rem, 2rem + 4vw, 6rem);
+}
+
+.kicker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  margin-bottom: var(--s-6);
+  color: var(--c-text-2);
+  letter-spacing: 0.24em;
+}
+
+.sep {
+  width: 1px;
+  height: 0.9rem;
+  background: var(--c-red);
+}
+
+.title {
+  font-size: var(--t-hero);
+  line-height: 0.9;
+  letter-spacing: -0.035em;
+  max-width: 11ch;
+}
+
+@media (max-width: 700px) {
+  .title {
+    font-size: clamp(2.5rem, 0.2rem + 13vw, 4.5rem);
+  }
+}
+
+.line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.04em;
+  margin-bottom: -0.04em;
+}
+
+.line > span {
+  display: inline-block;
+}
+
+.lead {
+  max-width: 34rem;
+  margin-top: var(--s-6);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+  margin-top: var(--s-7);
+}
+
+/* --- Lower HUD ------------------------------------------------------------ */
+
+.hud {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+  padding-block: var(--s-4);
+  border-top: 1px solid var(--c-border);
+  color: var(--c-text-3);
+}
+
+.caption {
+  display: none;
+}
+
+.figure {
+  color: var(--c-red-text);
+  margin-right: 0.75rem;
+}
+
+.scroll,
+.motion {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 44px;
+  color: var(--c-text-2);
+  transition: color var(--dur-2) var(--ease-out);
+}
+
+.scroll:hover,
+.motion:hover {
+  color: var(--c-text);
+}
+
+@media (min-width: 961px) {
+  .caption {
+    display: block;
+    flex: 1;
+  }
+
+  .scroll {
+    flex: none;
+  }
+
+  .motion {
+    flex: 1;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 960px) {
+  .backdrop::after {
+    background: linear-gradient(to top, var(--c-bg) 0%, rgb(8 9 11 / 0.72) 45%, transparent 85%);
+  }
+
+  .grid {
+    mask-image: radial-gradient(ellipse 90% 60% at 70% 25%, #000 0%, transparent 80%);
+  }
+}
+
+@media (max-height: 640px) and (min-width: 961px) {
+  .title {
+    font-size: clamp(2.5rem, 12vh, 6rem);
+  }
+}
+
+/* --- Entrance -------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  .line > span {
+    animation: rise 1.1s var(--ease-out) both;
+  }
+
+  .line:nth-child(1) > span {
+    animation-delay: 0.1s;
+  }
+
+  .line:nth-child(2) > span {
+    animation-delay: 0.2s;
+  }
+
+  .line:nth-child(3) > span {
+    animation-delay: 0.3s;
+  }
+
+  .kicker,
+  .lead,
+  .actions,
+  .hud {
+    animation: fade-up 1s var(--ease-out) both;
+  }
+
+  .kicker {
+    animation-delay: 0.05s;
+  }
+
+  .lead {
+    animation-delay: 0.45s;
+  }
+
+  .actions {
+    animation-delay: 0.55s;
+  }
+
+  .hud {
+    animation-delay: 0.8s;
+  }
+}
+
+@keyframes rise {
+  from {
+    transform: translateY(105%);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}

@@ -1,0 +1,48 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--c-text);
+  border-radius: var(--r-1);
+}
+
+.emblem {
+  flex: none;
+  transition: transform var(--dur-3) var(--ease-out);
+}
+
+.logo:hover .emblem {
+  transform: translateY(1px);
+}
+
+.wordmark {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.name {
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: 1.0625rem;
+  letter-spacing: 0.2em;
+  margin-right: -0.2em;
+}
+
+.sub {
+  margin-top: 0.3rem;
+  font-family: var(--f-mono);
+  font-size: 0.5625rem;
+  letter-spacing: 0.58em;
+  text-transform: uppercase;
+  color: var(--c-red-text);
+}
+
+.lg .name {
+  font-size: 1.625rem;
+}
+
+.lg .sub {
+  font-size: 0.6875rem;
+  margin-top: 0.45rem;
+}

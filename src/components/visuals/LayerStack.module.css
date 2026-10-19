@@ -1,0 +1,118 @@
+.svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.rail {
+  fill: none;
+  stroke: rgb(240 241 243 / 0.12);
+  stroke-dasharray: 2 4;
+}
+
+.plate {
+  cursor: pointer;
+  transition:
+    transform var(--dur-4) var(--ease-out),
+    opacity var(--dur-3) var(--ease-out);
+}
+
+.plate[data-active='true'] {
+  transform: translateY(-12px);
+}
+
+.top {
+  fill: rgb(16 18 22 / 0.88);
+  stroke: rgb(240 241 243 / 0.32);
+  stroke-width: 0.8;
+  transition:
+    fill var(--dur-3) var(--ease-out),
+    stroke var(--dur-3) var(--ease-out);
+}
+
+.side {
+  fill: #0e1014;
+  stroke: rgb(240 241 243 / 0.18);
+  stroke-width: 0.6;
+}
+
+.sideDark {
+  fill: #0a0b0e;
+  stroke: rgb(240 241 243 / 0.18);
+  stroke-width: 0.6;
+}
+
+.motif {
+  fill: none;
+  stroke: rgb(240 241 243 / 0.2);
+  stroke-width: 0.7;
+  transition: stroke var(--dur-3) var(--ease-out);
+}
+
+.label {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  fill: rgb(240 241 243 / 0.45);
+}
+
+.plate[data-active='true'] .top {
+  fill: rgb(38 12 17 / 0.92);
+  stroke: var(--c-red-critical);
+}
+
+.plate[data-active='true'] .motif {
+  stroke: rgb(240 98 112 / 0.75);
+}
+
+.plate[data-active='true'] .label {
+  fill: var(--c-red-text);
+}
+
+.plate:hover .top {
+  stroke: rgb(240 241 243 / 0.6);
+}
+
+.plate[data-active='true']:hover .top {
+  stroke: var(--c-red-critical);
+}
+
+.conduit {
+  stroke: rgb(240 241 243 / 0.18);
+  stroke-width: 1;
+}
+
+.conduitPulse {
+  stroke: var(--c-red-critical);
+  stroke-width: 1.5;
+  stroke-dasharray: 18 400;
+  opacity: 0;
+}
+
+.apex {
+  fill: var(--c-red-critical);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .conduitPulse {
+    opacity: 1;
+    animation: conduit 3.2s var(--ease-in-out) infinite;
+  }
+}
+
+@keyframes conduit {
+  from {
+    stroke-dashoffset: 18;
+  }
+  to {
+    stroke-dashoffset: -400;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .plate,
+  .top,
+  .motif {
+    transition: none;
+  }
+}

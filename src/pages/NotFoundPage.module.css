@@ -1,0 +1,44 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 88vh;
+  min-height: 88svh;
+  padding-top: calc(var(--nav-h) + 3rem);
+  padding-bottom: var(--s-9);
+  position: relative;
+  isolation: isolate;
+}
+
+.page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(var(--c-line) 1px, transparent 1px) 0 0 / 64px 64px,
+    linear-gradient(90deg, var(--c-line) 1px, transparent 1px) 0 0 / 64px 64px;
+  mask-image: radial-gradient(ellipse 70% 60% at 30% 50%, #000, transparent);
+}
+
+.code {
+  color: var(--c-red-text);
+}
+
+.title {
+  margin-top: var(--s-5);
+  font-size: var(--t-h1);
+  max-width: 14ch;
+}
+
+.text {
+  margin-top: var(--s-5);
+  max-width: 36rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+  margin-top: var(--s-7);
+}
