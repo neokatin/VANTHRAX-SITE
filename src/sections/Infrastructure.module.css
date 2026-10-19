@@ -2,48 +2,6 @@
   background: linear-gradient(to bottom, var(--c-bg), var(--c-bg-2) 30%, var(--c-bg-2) 70%, var(--c-bg));
 }
 
-.figure {
-  margin-bottom: clamp(3rem, 2rem + 3vw, 5rem);
-}
-
-.frame {
-  position: relative;
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-  border: 1px solid var(--c-border);
-  background: var(--c-bg-2);
-}
-
-@media (min-width: 700px) {
-  .frame {
-    aspect-ratio: 21 / 9;
-  }
-}
-
-.frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.frame::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgb(16 18 22 / 0.7), transparent 40%);
-  pointer-events: none;
-}
-
-.figure figcaption {
-  margin-top: var(--s-3);
-  color: var(--c-text-3);
-}
-
-.figure figcaption span {
-  color: var(--c-red-text);
-  margin-right: 0.75rem;
-}
-
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));
@@ -123,11 +81,11 @@
 
 .name {
   margin-top: var(--s-8);
-  font-family: var(--f-display);
+  font-family: var(--f-sans);
   font-size: var(--t-h4);
-  font-weight: 500;
   line-height: 1.2;
-  letter-spacing: -0.01em;
+  font-weight: 600;
+  letter-spacing: -0.015em;
 }
 
 .desc {

@@ -1,4 +1,4 @@
-import { Leadership } from '../components/company/Leadership';
+import { ArrowRight } from 'lucide-react';
 import { PRINCIPLES } from '../content/company';
 import { SectionHeader } from '../components/ui/SectionHeader';
 import styles from './Company.module.css';
@@ -12,11 +12,7 @@ export function Company() {
           index="05"
           eyebrow="Company"
           titleId="company-title"
-          title={
-            <>
-              Built to defend what matters<span className="accent-stop">.</span>
-            </>
-          }
+          title="Built to defend what matters."
           link={{ href: '/company/', label: 'About VANTHRAX' }}
           intro={
             <>
@@ -35,14 +31,17 @@ export function Company() {
         <ol role="list" className={styles.principles}>
           {PRINCIPLES.map((p, i) => (
             <li key={p.title} data-reveal style={{ '--reveal-delay': `${i * 90}ms` } as React.CSSProperties}>
-              <span className={`mono ${styles.pIndex}`}>P—0{i + 1}</span>
               <h3 className={styles.pTitle}>{p.title}</h3>
               <p className={styles.pBody}>{p.body}</p>
             </li>
           ))}
         </ol>
 
-        <Leadership />
+        <a href="/company/#leadership-title" className={styles.leader}>
+          <span className={`mono ${styles.leaderRole}`}>Founder &amp; Chief Executive Officer</span>
+          <span className={styles.leaderName}>Vexy Razor</span>
+          <ArrowRight className={styles.leaderArrow} size={22} strokeWidth={1.25} aria-hidden="true" />
+        </a>
       </div>
     </section>
   );

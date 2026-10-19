@@ -44,7 +44,7 @@ export function TechnologyPage() {
         current="Technology"
         title={
           <>
-            Security at the architectural level<span className="accent-stop">.</span>
+            Security at the architectural level.
           </>
         }
         intro={
@@ -104,7 +104,6 @@ export function TechnologyPage() {
         <ol role="list" className={styles.defense}>
           {DEFENSE.map((d, i) => (
             <li key={d.title} data-reveal style={{ '--reveal-delay': `${(i % 2) * 90}ms` } as React.CSSProperties}>
-              <span className="mono">D—0{i + 1}</span>
               <h3>{d.title}</h3>
               <p>{d.body}</p>
             </li>

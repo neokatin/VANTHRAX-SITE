@@ -78,12 +78,11 @@ export function SitemapPage({ routes }: { routes: Route[] }) {
   return (
     <>
       <PageHeader
-        index="—"
         eyebrow="Sitemap"
         current="Sitemap"
         title={
           <>
-            Sitemap<span className="accent-stop">.</span>
+            Sitemap.
           </>
         }
         intro={<p>Every page on vanthrax.com, in one place. {total} pages in total.</p>}

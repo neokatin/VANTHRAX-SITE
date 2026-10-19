@@ -15,10 +15,18 @@
   border-bottom: 1px solid var(--c-border);
 }
 
-.lockup {
-  width: min(100%, 560px);
-  margin-left: -2.2%;
-  mix-blend-mode: lighten;
+.identity {
+  display: grid;
+  gap: var(--s-4);
+  justify-items: start;
+}
+
+.descriptor {
+  font-family: var(--f-mono);
+  font-size: var(--t-micro);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--c-text-3);
 }
 
 .tagline {
@@ -63,6 +71,23 @@
   color: var(--c-text-3);
   font-size: var(--t-micro);
   line-height: 1.6;
+}
+
+.signature {
+  margin-top: var(--s-4);
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: clamp(4rem, 18.5vw, 17.5rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: -0.12em;
+  text-align: center;
+  white-space: nowrap;
+  color: transparent;
+  background: linear-gradient(to bottom, rgb(240 241 243 / 0.09), rgb(240 241 243 / 0) 92%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  user-select: none;
 }
 
 .base {

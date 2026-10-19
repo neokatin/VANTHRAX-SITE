@@ -18,7 +18,7 @@ export function Technology() {
           link={{ href: '/technology/', label: 'Explore the architecture' }}
           title={
             <>
-              Security at the architectural level<span className="accent-stop">.</span>
+              Security at the architectural level.
             </>
           }
         />

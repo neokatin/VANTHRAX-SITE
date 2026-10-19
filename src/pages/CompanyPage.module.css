@@ -30,11 +30,11 @@
 }
 
 .principles h3 {
-  margin-top: var(--s-5);
-  font-family: var(--f-display);
+  margin-top: 0;
+  font-family: var(--f-sans);
   font-size: var(--t-h4);
-  text-transform: uppercase;
-  letter-spacing: 0.01em;
+  font-weight: 600;
+  letter-spacing: -0.015em;
 }
 
 .pBody {
@@ -61,7 +61,7 @@
 
 .commitments li {
   display: grid;
-  grid-template-columns: 3rem 1fr;
+  grid-template-columns: 1fr;
   align-items: baseline;
   padding-block: var(--s-5);
   border-bottom: 1px solid var(--c-border);
@@ -72,9 +72,11 @@
 }
 
 .commitments p {
-  font-family: var(--f-display);
+  font-family: var(--f-sans);
   font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem);
   line-height: 1.2;
+  font-weight: 400;
+  letter-spacing: -0.025em;
 }
 
 .inline {

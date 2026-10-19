@@ -33,7 +33,7 @@ export function ProductPage({ product }: { product: Product }) {
         title={
           <>
             {product.name}
-            <span className="accent-stop">.</span>
+            .
           </>
         }
         intro={<p>{product.summary}</p>}
@@ -78,7 +78,6 @@ export function ProductPage({ product }: { product: Product }) {
         <ol role="list" className={styles.capabilities}>
           {product.capabilities.map((c, i) => (
             <li key={c.title} data-reveal style={{ '--reveal-delay': `${(i % 2) * 90}ms` } as React.CSSProperties}>
-              <span className="mono">0{i + 1}</span>
               <h3>{c.title}</h3>
               <p>{c.body}</p>
             </li>

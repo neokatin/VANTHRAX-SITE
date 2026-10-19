@@ -39,14 +39,15 @@
   display: inline-flex;
   align-items: center;
   min-height: 32px;
-  font-family: var(--f-display);
+  font-family: var(--f-sans);
   font-size: var(--t-h4);
-  font-weight: 500;
   color: var(--c-text);
   text-decoration: underline;
   text-decoration-color: transparent;
   text-underline-offset: 0.25em;
   transition: text-decoration-color var(--dur-2);
+  font-weight: 600;
+  letter-spacing: -0.015em;
 }
 
 .link:hover {

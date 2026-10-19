@@ -94,7 +94,7 @@ export function ThreatIntel({ index = '03', link }: ThreatIntelProps) {
           link={link}
           title={
             <>
-              The threat landscape never stands still<span className="accent-stop">.</span>
+              The threat landscape never stands still.
             </>
           }
           intro={
@@ -192,7 +192,6 @@ export function ThreatIntel({ index = '03', link }: ThreatIntelProps) {
         <ul role="list" className={styles.pillars}>
           {PILLARS.map((p, i) => (
             <li key={p.title} data-reveal style={{ '--reveal-delay': `${i * 100}ms` } as React.CSSProperties}>
-              <p className={`mono ${styles.pillarIndex}`}>0{i + 1}</p>
               <h3 className={styles.pillarTitle}>{p.title}</h3>
               <p className={styles.pillarBody}>{p.body}</p>
             </li>
